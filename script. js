@@ -1,0 +1,26 @@
+let balance = 0;
+
+function deposit(){
+    let amount =
+    Number(document.getElementById("amount").value);
+
+    balance += amount;
+
+    document.getElementById("balance").innerHTML =
+    "Balance: ₹" + balance;
+}
+
+function withdraw(){
+    let amount =
+    Number(document.getElementById("amount").value);
+
+    if(amount <= balance){
+        balance -= amount;
+
+        document.getElementById("balance").innerHTML =
+        "Balance: ₹" + balance;
+    }
+    else{
+        alert("Insufficient Balance");
+    }
+}
