@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banking Account Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Banking Account Management System</h1>
+
+    <input type="number" id="amount" placeholder="Enter Amount">
+
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
+
+    <h2 id="balance">Balance: ₹0</h2>
+
+    <script src="script.js"></script>
+</body>
+</html>
