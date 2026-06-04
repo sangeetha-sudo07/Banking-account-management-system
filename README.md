@@ -95,19 +95,21 @@ input{
 let balance = 0;
 
 function deposit() {
-    let amount = parseFloat(document.getElementById("amount").value);
-
-    if (!isNaN(amount) && amount > 0) {
-        balance += amount;
-        document.getElementById("balance").innerText = balance;
-    }
+    let amount = Number(document.getElementById("amount").value);
+    balance += amount;
+    document.getElementById("balance").innerHTML =
+    "Balance: ₹" + balance;
 }
 
 function withdraw() {
-    let amount = parseFloat(document.getElementById("amount").value);
+    let amount = Number(document.getElementById("amount").value);
 
-    if (!isNaN(amount) && amount > 0 && amount <= balance) {
+    if(amount <= balance){
         balance -= amount;
-        document.getElementById("balance").innerText = balance;
+        document.getElementById("balance").innerHTML =
+        "Balance: ₹" + balance;
+    }
+    else{
+        alert("Insufficient Balance");
     }
 }
