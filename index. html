@@ -12,7 +12,7 @@
     <button onclick="deposit()">Deposit</button>
     <button onclick="withdraw()">Withdraw</button>
 
-    <h2 id="balance">Balance: ₹0</h2>
+    h2>Current Balance: ₹<span        id="balance">0</span></h2>
 
     <script src="script.js"></script>
 </body>
