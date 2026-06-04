@@ -1,26 +1,19 @@
 let balance = 0;
 
-function deposit(){
-    let amount =
-    Number(document.getElementById("amount").value);
+function deposit() {
+    let amount = parseFloat(document.getElementById("amount").value);
 
-    balance += amount;
-
-    document.getElementById("balance").innerHTML =
-    "Balance: ₹" + balance;
+    if (!isNaN(amount) && amount > 0) {
+        balance += amount;
+        document.getElementById("balance").innerText = balance;
+    }
 }
 
-function withdraw(){
-    let amount =
-    Number(document.getElementById("amount").value);
+function withdraw() {
+    let amount = parseFloat(document.getElementById("amount").value);
 
-    if(amount <= balance){
+    if (!isNaN(amount) && amount > 0 && amount <= balance) {
         balance -= amount;
-
-        document.getElementById("balance").innerHTML =
-        "Balance: ₹" + balance;
-    }
-    else{
-        alert("Insufficient Balance");
+        document.getElementById("balance").innerText = balance;
     }
 }
