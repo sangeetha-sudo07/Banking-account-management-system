@@ -18,37 +18,22 @@ Sangeetha
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Smart Banking and Transaction Management System</title>
+    <title>Banking Account Management System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Banking Account Management System</h1>
 
-<div class="container">
-    <h1>Smart Banking and Transaction Management System</h1>
-    <p>Manage your account transactions easily and securely</p>
+    <input type="number" id="amount" placeholder="Enter Amount">
 
-    <div class="card">
-        <h3>Enter Amount</h3>
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
 
-        <input type="number" id="amount" placeholder="Enter amount">
+    <h2 id="balance">Balance: ₹0</h2>
 
-        <div class="buttons">
-            <button class="deposit" onclick="deposit()">Deposit</button>
-            <button class="withdraw" onclick="withdraw()">Withdraw</button>
-        </div>
-
-        <div class="balance-box">
-            <h3>Current Balance</h3>
-            <h2 id="balance">₹0</h2>
-        </div>
-    </div>
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
-
 body{
     font-family: Arial, sans-serif;
     background:#f3f4ff;
@@ -109,26 +94,20 @@ input{
 
 let balance = 0;
 
-function deposit(){
-    let amount =
-    Number(document.getElementById("amount").value);
+function deposit() {
+    let amount = parseFloat(document.getElementById("amount").value);
 
-    balance += amount;
-
-    document.getElementById("balance").innerHTML =
-    "₹" + balance;
+    if (!isNaN(amount) && amount > 0) {
+        balance += amount;
+        document.getElementById("balance").innerText = balance;
+    }
 }
 
-function withdraw(){
-    let amount =
-    Number(document.getElementById("amount").value);
+function withdraw() {
+    let amount = parseFloat(document.getElementById("amount").value);
 
-    if(amount <= balance){
+    if (!isNaN(amount) && amount > 0 && amount <= balance) {
         balance -= amount;
-
-        document.getElementById("balance").innerHTML =
-        "₹" + balance;
-    }else{
-        alert("Insufficient Balance");
+        document.getElementById("balance").innerText = balance;
     }
 }
